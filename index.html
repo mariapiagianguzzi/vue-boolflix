@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Boolflix</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="container">
+          <h3>BOOLFLIX</h3>
+          <input
+            @keyup.enter="searchFilm(search)"
+            type="text"
+            v-model="search"
+            name=""
+            value=""
+            placeholder="Cerca"
+          />
+        </div>
+      </header>
+
+      <div class="tvs-container container">
+        <div class="tv" v-for="tv in filmTv">
+          <h3>{{ tv.title }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
