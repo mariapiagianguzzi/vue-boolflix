@@ -23,7 +23,7 @@ header {
   background: rgb(0 2 4);
 }
 header h3 {
-  margin-top: 10px;
+  padding-top: 5px;
   color: red;
 }
 

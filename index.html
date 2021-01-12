@@ -6,6 +6,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <link
       href="https://fonts.googleapis.com/css?family=Lato&display=swap"
       rel="stylesheet"
     />
@@ -30,6 +36,13 @@
       <div class="tvs-container container">
         <div class="tv" v-for="tv in filmTv">
           <h3>{{ tv.title }}</h3>
+          <span class="original-title">{{ tv.original_title }}</span>
+          <span class="original-language">{{ tv.original_language }}</span>
+          <span class="vote-average">{{ tv.vote_average }}</span>
+          <span class="stars">
+            <i v-for="star in tv.vote_average" class="fas fa-star"></i
+            ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
+          </span>
         </div>
       </div>
     </div>

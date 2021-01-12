@@ -26,19 +26,12 @@ $(document).ready(function () {
           .then((response) => {
             let tv = response.data.results; // è il mio contenitore che contiene response.data.results più precisamente il percorso dove io voglio andare a prendere le informazioni
             this.filmTv = tv;
+            this.filmTv.forEach((element) => {
+              let score = Math.ceil(element.vote_average / 2);
+              element.vote_average = score;
+            });
           });
-        console.log(response.data.results);
       },
     },
-    /* mounted() {
-      axios
-        .get(
-          "https://api.themoviedb.org/3/search/movie?api_key=bf45f2aa9f37b275b9bc666d1480d632&language=en-US&query + search"
-        ) //le informazioni le prendo in questo link che è un API ci permette di manipolare le informazioni
-        .then((response) => {
-          let tv = response.data.results; // è il mio contenitore che contiene responde.data.response più precisamente il percorso dove io voglio andare a prendere le informazioni
-          this.serieTv = tv;
-        });
-    }, */
   });
 });
