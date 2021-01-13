@@ -39,6 +39,10 @@
           <span class="original-title">{{ tv.original_title }}</span>
           <span class="original-language">{{ tv.original_language }}</span>
           <span class="vote-average">{{ tv.vote_average }}</span>
+          <img
+          :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
+          alt="">
+
           <span class="stars">
             <i v-for="star in tv.vote_average" class="fas fa-star"></i
             ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
@@ -48,7 +52,7 @@
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="main.js" charset="utf-8"></script>
   </body>

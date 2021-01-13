@@ -9,29 +9,42 @@ film trovato:
 3. Lingua
 4. Voto bf45f2aa9f37b275b9bc666d1480d632 */
 
-$(document).ready(function () {
-  let app = new Vue({
-    el: "#app",
-    data: {
-      filmTv: [], //contenitore dove devo mettere le informazioni
-      search: "",
-    },
-    methods: {
-      searchFilm(search) {
-        axios
-          .get(
-            "https://api.themoviedb.org/3/search/movie?api_key=bf45f2aa9f37b275b9bc666d1480d632&language=en-US&query=" +
-              search
-          ) //le informazioni le prendo in questo link che è un API ci permette di manipolare le informazioni
-          .then((response) => {
-            let tv = response.data.results; // è il mio contenitore che contiene response.data.results più precisamente il percorso dove io voglio andare a prendere le informazioni
-            this.filmTv = tv;
-            this.filmTv.forEach((element) => {
-              let score = Math.ceil(element.vote_average / 2);
-              element.vote_average = score;
-            });
+let app = new Vue({
+  el: "#app",
+  data: {
+    filmTv: [], //contenitore dove devo mettere le informazioni
+    search: "",
+  },
+  methods: {
+    searchFilm(search) {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/search/movie?api_key=bf45f2aa9f37b275b9bc666d1480d632&language=en-US&query=" +
+            search
+        ) //le informazioni le prendo in questo link che è un API ci permette di manipolare le informazioni
+        .then((response) => {
+          let tv = response.data.results; // è il mio contenitore che contiene response.data.results più precisamente il percorso dove io voglio andare a prendere le informazioni
+          this.filmTv = tv;
+          this.filmTv.forEach((element) => {
+            let score = Math.ceil(element.vote_average / 2);
+            element.vote_average = score;
+            if (element.original_language == "en") {
+              element.original_language = "gb";
+            } else if (element.original_language == "zh") {
+              element.original_language = "cn";
+            } else if (element.original_language == "ko") {
+              element.original_language = "kr";
+            } else if (element.original_language == "vi") {
+              element.original_language = "vn";
+            } else if (element.original_language == "hu" || "et") {
+              element.original_language = "eu";
+            } else if (element.original_language == "ja") {
+              element.original_language = "jp";
+            } else if (element.original_language == "da") {
+              element.original_language = "dk";
+            }
           });
-      },
+        });
     },
-  });
+  },
 });
