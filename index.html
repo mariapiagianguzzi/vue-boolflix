@@ -21,7 +21,7 @@
     <div id="app">
       <header>
         <div class="container">
-          <h3>BOOLFLIX</h3>
+          <img class="boolflix" src="./png/boolflix.png" alt="" />
           <input
             @keyup.enter="searchFilm(search)"
             type="text"
@@ -35,16 +35,20 @@
 
       <div class="tvs-container container">
         <div class="tv" v-for="tv in filmTv">
-          <img :src=`https://image.tmdb.org/t/p/w342${tv.poster_path}` alt="">
-          <h3>{{ tv.title }}</h3>
-          <span class="original-title">{{ tv.original_title }}</span>
-          <span class="original-language">{{ tv.original_language }}</span>
-          <span class="vote-average">{{ tv.vote_average }}</span>
-          <img
+          <img class="tv"
+          :src=`https://image.tmdb.org/t/p/w342${tv.poster_path}` alt="">
+          <div class="info">
+            <h3>{{ tv.title }}</h3>
+            <span class="original-title">{{ tv.original_title }}</span>
+            <span class="original-language">{{ tv.original_language }}</span>
+            <span class="vote-average">{{ tv.vote_average }}</span>
+          </div>
+
+          <img class="flags"
           :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
           alt="">
 
-          <span class="stars">
+          <span class="stars info">
             <i v-for="star in tv.vote_average" class="fas fa-star"></i
             ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
           </span>
@@ -52,16 +56,19 @@
       </div>
       <div class="tvs-container container">
         <div class="tv" v-for="tv in serieTv">
-          <h3>{{ tv.name }}</h3>
           <img :src=`https://image.tmdb.org/t/p/w342${tv.poster_path}` alt="">
-          <span class="original-title">{{ tv.original_name }}</span>
-          <span class="original-language">{{ tv.original_language }}</span>
-          <span class="vote-average">{{ tv.vote_average }}</span>
-          <img
+          <div class="info">
+            <h3>{{ tv.name }}</h3>
+            <span class="original-title">{{ tv.original_name }}</span>
+            <span class="original-language">{{ tv.original_language }}</span>
+            <span class="vote-average">{{ tv.vote_average }}</span>
+          </div>
+
+          <img class="flags"
           :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
           alt="">
 
-          <span class="stars">
+          <span class="stars info">
             <i v-for="star in tv.vote_average" class="fas fa-star"></i
             ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
           </span>
