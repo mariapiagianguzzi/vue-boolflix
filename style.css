@@ -26,6 +26,9 @@ header h3 {
   padding-top: 5px;
   color: red;
 }
+input {
+  margin-left: 1000px;
+}
 
 .tvs-container {
   display: flex;
