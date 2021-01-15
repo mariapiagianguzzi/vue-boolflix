@@ -28,7 +28,7 @@
         <div class="container">
           <img class="boolflix" src="./png/boolflix.png" alt="" />
           <input
-            @keyup.enter="searchFilm(search)"
+            @keyup.enter="searchFilm"
             type="text"
             v-model="search"
             name=""
@@ -43,17 +43,20 @@
           <div class="overlay">
             <div class="info">
               <h3>{{ tv.title }}</h3>
-              <span class="original-title">{{ tv.original_title }}</span>
-              <span class="original-language">{{ tv.original_language }}</span>
-              <span class="vote-average">{{ tv.vote_average }}</span>
-              <span>overview: {{ tv.overview }}</span>
-              <img class="flags"
-              :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
-              alt="">
+              <p class="original-title">{{ tv.original_title }}</p>
               <span class="stars">
                 <i v-for="star in tv.vote_average" class="fas fa-star"></i
                 ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
               </span>
+              <!-- <p class="vote-average">{{ tv.vote_average }}</p> -->
+              <p class="overview">overview: {{ tv.overview }}</p>
+              <div class="flags">
+                <img v-if="flag.includes(tv.original_language)"
+                :src=`./png/${tv.original_language}.png` alt="">
+                <p v-else class="original-language">
+                  {{ tv.original_language }}
+                </p>
+              </div>
             </div>
           </div>
           <img src="./png/1-10.png" alt="" v-if="tv.poster_path == null" />
@@ -67,17 +70,21 @@
           <div class="overlay">
             <div class="info">
               <h3>{{ tv.name }}</h3>
-              <span class="original-title">{{ tv.original_name }}</span>
-              <span class="original-language">{{ tv.original_language }}</span>
-              <span class="vote-average">{{ tv.vote_average }}</span>
-              <span>overview: {{ tv.overview }}</span>
-              <img class="flags"
-              :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
-              alt="">
+              <p class="original-title">{{ tv.original_name }}</p>
+              <!-- <p class="vote-average">{{ tv.vote_average }}</p> -->
+              <p class="overview">overview: {{ tv.overview }}</p>
+              <p class="original-language">{{ tv.original_language }}</p>
               <span class="stars">
                 <i v-for="star in tv.vote_average" class="fas fa-star"></i
                 ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
               </span>
+              <div>
+                <img v-if="flag.includes(tv.original_language)" class="flags"
+                :src=`./png/${tv.original_language}.png` alt="">
+                <p v-else class="original-language">
+                  {{ tv.original_language }}
+                </p>
+              </div>
             </div>
           </div>
           <img src="./png/1-10.png" alt="" v-if="tv.poster_path == null" />
