@@ -53,8 +53,8 @@
               <div class="flags">
                 <img v-if="flag.includes(tv.original_language)"
                 :src=`./png/${tv.original_language}.png` alt="">
-                <p v-else class="original-language">
-                  {{ tv.original_language }}
+                <p class="original-language" v-else>
+                  lingua: {{ tv.original_language }}
                 </p>
               </div>
             </div>
@@ -72,17 +72,17 @@
               <h3>{{ tv.name }}</h3>
               <p class="original-title">{{ tv.original_name }}</p>
               <!-- <p class="vote-average">{{ tv.vote_average }}</p> -->
-              <p class="overview">overview: {{ tv.overview }}</p>
-              <p class="original-language">{{ tv.original_language }}</p>
+
               <span class="stars">
                 <i v-for="star in tv.vote_average" class="fas fa-star"></i
                 ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
               </span>
-              <div>
-                <img v-if="flag.includes(tv.original_language)" class="flags"
+              <p class="overview">overview: {{ tv.overview }}</p>
+              <div class="flags">
+                <img v-if="flag.includes(tv.original_language)"
                 :src=`./png/${tv.original_language}.png` alt="">
                 <p v-else class="original-language">
-                  {{ tv.original_language }}
+                  Lingua: {{ tv.original_language }}
                 </p>
               </div>
             </div>

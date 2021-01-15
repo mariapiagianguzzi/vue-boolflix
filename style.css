@@ -44,7 +44,7 @@ input {
 
 .tvs-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 30px;
@@ -55,7 +55,7 @@ input {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  margin: 3px;
+  margin: 8px;
   width: 200px;
   height: 350px;
   position: relative;
