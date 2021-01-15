@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <title>Boolflix</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link
@@ -32,46 +37,52 @@
           />
         </div>
       </header>
-
+      <h2 class="container mt-15">GUARDA FILM</h2>
       <div class="tvs-container container">
         <div class="tv" v-for="tv in filmTv">
-          <img class="tv"
-          :src=`https://image.tmdb.org/t/p/w342${tv.poster_path}` alt="">
-          <div class="info">
-            <h3>{{ tv.title }}</h3>
-            <span class="original-title">{{ tv.original_title }}</span>
-            <span class="original-language">{{ tv.original_language }}</span>
-            <span class="vote-average">{{ tv.vote_average }}</span>
+          <div class="overlay">
+            <div class="info">
+              <h3>{{ tv.title }}</h3>
+              <span class="original-title">{{ tv.original_title }}</span>
+              <span class="original-language">{{ tv.original_language }}</span>
+              <span class="vote-average">{{ tv.vote_average }}</span>
+              <span>overview: {{ tv.overview }}</span>
+              <img class="flags"
+              :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
+              alt="">
+              <span class="stars">
+                <i v-for="star in tv.vote_average" class="fas fa-star"></i
+                ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
+              </span>
+            </div>
           </div>
-
-          <img class="flags"
-          :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
-          alt="">
-
-          <span class="stars info">
-            <i v-for="star in tv.vote_average" class="fas fa-star"></i
-            ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
-          </span>
+          <img src="./png/1-10.png" alt="" v-if="tv.poster_path == null" />
+          <img :src=`https://image.tmdb.org/t/p/w342${tv.poster_path}` alt=""
+          v-else>
         </div>
       </div>
+      <h2 class="container mt-15">GUARDA SERIE TV</h2>
       <div class="tvs-container container">
         <div class="tv" v-for="tv in serieTv">
-          <img :src=`https://image.tmdb.org/t/p/w342${tv.poster_path}` alt="">
-          <div class="info">
-            <h3>{{ tv.name }}</h3>
-            <span class="original-title">{{ tv.original_name }}</span>
-            <span class="original-language">{{ tv.original_language }}</span>
-            <span class="vote-average">{{ tv.vote_average }}</span>
+          <div class="overlay">
+            <div class="info">
+              <h3>{{ tv.name }}</h3>
+              <span class="original-title">{{ tv.original_name }}</span>
+              <span class="original-language">{{ tv.original_language }}</span>
+              <span class="vote-average">{{ tv.vote_average }}</span>
+              <span>overview: {{ tv.overview }}</span>
+              <img class="flags"
+              :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
+              alt="">
+              <span class="stars">
+                <i v-for="star in tv.vote_average" class="fas fa-star"></i
+                ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
+              </span>
+            </div>
           </div>
-
-          <img class="flags"
-          :src=`https://www.countryflags.io/${tv.original_language}/shiny/64.png`
-          alt="">
-
-          <span class="stars info">
-            <i v-for="star in tv.vote_average" class="fas fa-star"></i
-            ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
-          </span>
+          <img src="./png/1-10.png" alt="" v-if="tv.poster_path == null" />
+          <img :src=`https://image.tmdb.org/t/p/w342${tv.poster_path}` alt=""
+          v-else>
         </div>
       </div>
     </div>
