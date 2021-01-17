@@ -7,7 +7,8 @@ film trovato:
 1. Titolo
 2. Titolo Originale
 3. Lingua
-4. Voto bf45f2aa9f37b275b9bc666d1480d632 */
+4. Voto 
+bf45f2aa9f37b275b9bc666d1480d632 IL MIO API */
 
 let app = new Vue({
   el: "#app",
@@ -92,21 +93,6 @@ let app = new Vue({
           this.serieTv.forEach((element) => {
             let score = Math.ceil(element.vote_average / 2);
             element.vote_average = score;
-            /* if (element.original_language == "en") {
-              element.original_language = "gb";
-            } else if (element.original_language == "zh") {
-              element.original_language = "cn";
-            } else if (element.original_language == "ko") {
-              element.original_language = "kr";
-            } else if (element.original_language == "vi") {
-              element.original_language = "vn";
-            } else if (element.original_language == "hu" || "et") {
-              element.original_language = "eu";
-            } else if (element.original_language == "ja") {
-              element.original_language = "jp";
-            } else if (element.original_language == "da") {
-              element.original_language = "dk";
-            } */
           });
         });
     },

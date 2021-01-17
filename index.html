@@ -24,6 +24,8 @@
   </head>
   <body>
     <div id="app">
+      <!-- DIV APP -->
+      <!-- INIZIO SEZIONE HEADER -->
       <header>
         <div class="container">
           <img class="boolflix" src="./png/boolflix.png" alt="" />
@@ -37,7 +39,9 @@
           />
         </div>
       </header>
-      <h2 class="container mt-15">GUARDA FILM</h2>
+      <!-- FINE SEZIONE HEADER -->
+      <!-- INIZIO SEZIONE FILM -->
+      <h2 class="container mt-15">Film</h2>
       <div class="tvs-container container">
         <div class="tv" v-for="tv in filmTv">
           <div class="overlay">
@@ -48,7 +52,6 @@
                 <i v-for="star in tv.vote_average" class="fas fa-star"></i
                 ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
               </span>
-              <!-- <p class="vote-average">{{ tv.vote_average }}</p> -->
               <p class="overview">overview: {{ tv.overview }}</p>
               <div class="flags">
                 <img v-if="flag.includes(tv.original_language)"
@@ -64,15 +67,15 @@
           v-else>
         </div>
       </div>
-      <h2 class="container mt-15">GUARDA SERIE TV</h2>
+      <!-- FINE SEZIONE FILM -->
+      <!-- INIZIO SEZIONE SERIE TV -->
+      <h2 class="container mt-15">Serie TV</h2>
       <div class="tvs-container container">
         <div class="tv" v-for="tv in serieTv">
           <div class="overlay">
             <div class="info">
               <h3>{{ tv.name }}</h3>
               <p class="original-title">{{ tv.original_name }}</p>
-              <!-- <p class="vote-average">{{ tv.vote_average }}</p> -->
-
               <span class="stars">
                 <i v-for="star in tv.vote_average" class="fas fa-star"></i
                 ><i v-for="star in 5-tv.vote_average" class="far fa-star"></i>
@@ -92,6 +95,7 @@
           v-else>
         </div>
       </div>
+      <!-- FINE SEZIONE SERIE TV -->
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

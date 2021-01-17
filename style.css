@@ -47,7 +47,7 @@ input {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 50px;
 }
 
 .tv {
@@ -70,7 +70,8 @@ input {
 }
 
 .flags > img {
-  width: 30%;
+  width: 10%;
+  position: absolute;
 }
 .info {
   width: 100%;
@@ -98,20 +99,9 @@ input {
 
 .tv > img {
   width: 200px;
-  height: 350px;
+  height: 300px;
   border-radius: 10px;
 }
-
-/* .tv span.author {
-  color: grey;
-  font-size: 20px;
-}
-
-.tv span.year {
-  color: grey;
-  height: 10%;
-}
- */
 .mt-15 {
   margin-top: 15px;
   color: white;
